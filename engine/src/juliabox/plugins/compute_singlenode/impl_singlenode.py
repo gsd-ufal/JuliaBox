@@ -43,7 +43,7 @@ class CompSingleNode(JBPluginCloud):
 
     @staticmethod
     def get_alias_hostname():
-        return CompSingleNode.get_instance_public_hostname()
+        return "gsd-juliabox.cloudapp.net"
 
     @staticmethod
     def get_instance_public_hostname(instance_id=None):
