@@ -62,7 +62,7 @@
 </head>
 <body>
     <div class="container banner-container">
-        <div class="col-md-2"><img class="logo" src="/assets/img/cloudarraybox.png"></div>
+        <div class="col-md-2"><img class="logo" src="/assets/img/cloudarraybox.jpg"></div>
         <div class="col-md-3"><h1>CloudArrayBox <sup>beta</sup></h1></div>
         <div class="description col-md-7">Easy Big Data programming in the Cloud.</div>
     </div>
