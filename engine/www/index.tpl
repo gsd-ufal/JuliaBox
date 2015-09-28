@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>JuliaBox</title>
+    <title>CloudArrayBox</title>
 
     <!-- Bootstrap core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
@@ -142,6 +142,8 @@
 
     <div class="footer">
         <div class="container u-center">
+            Internship call for <a href="http://master.irisa.fr/index.php/en/">IRISA-MRI Master Programme</a> students (France): <a href="http://master.irisa.fr/index.php/en/370?id_stage=65">Dynamic adaptation for big data applications in the cloud</a>
+            <br/>
             Research Group in Distributed Systems (GSD - LaCCAN)
             Computing Institute
             Federal University of Alagoas (Brazil)
