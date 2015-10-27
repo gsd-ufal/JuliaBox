@@ -33,12 +33,7 @@ Optim JuMP GLPKMathProgInterface Clp NLopt Ipopt \
 Cairo GraphViz \
 Images ImageView WAV ODE Sundials LinearLeastSquares \
 BayesNets PGFPlots GraphLayout \
-<<<<<<< HEAD
-Stan Patchwork Quandl Lazy QuantEcon MixedModels Escher \
-ZMQ Nettle"
-=======
 Stan Patchwork Quandl Lazy QuantEcon MixedModels Escher"
->>>>>>> upstream/master
 
 INTERNAL_PACKAGES="https://github.com/tanmaykm/JuliaBoxUtils.jl.git \
 https://github.com/tanmaykm/JuliaWebAPI.jl.git \

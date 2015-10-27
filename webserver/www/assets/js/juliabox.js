@@ -76,34 +76,6 @@ var JuliaBox = (function($, _, undefined){
 	    	self.comm('/jci_file/pkginfo', 'GET', {'ver': ver}, s, f);
 	    },
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-	    switch_julia_image: function(disp_curr, disp_switch) {
-	    	s = function(img){
-	    	    if(img.code == 0) {
-	    	        self.set_julia_image_type(disp_curr, disp_switch, img.data);
-	    	        bootbox.alert('Your Julia image has been changed and will be effective the next time you log in.');
-	    	    }
-	    	    else {
-	    	        bootbox.alert("Oops. Unexpected error while switching Julia image.<br/><br/>Please try again later.");
-	    	    }
-	    	};
-	    	f = function() { bootbox.alert("Oops. Unexpected error while switching Julia image.<br/><br/>Please try again later."); };
-	    	self.comm('/jboxadmin/', 'GET', {'switch_julia_img': true}, s, f);
-	    },
-
-	    set_julia_image_type: function(disp_curr, disp_switch, curr_img_type) {
-	        if(0 == curr_img_type) {
-	            disp_curr.html("standard");
-	            disp_switch.html("precompiled packages");
-	        }
-	        else {
-	            disp_switch.html("standard");
-	            disp_curr.html("precompiled packages");
-	        }
-=======
-=======
->>>>>>> upstream/master
 	    del_packages_confirm: function() {
 			self.popup_confirm("Switch back to system installed packages? Your local packages folder (~/.julia) will be renamed.", function(res) {
 				if(res) {
@@ -123,10 +95,6 @@ var JuliaBox = (function($, _, undefined){
 	    	};
 	    	f = function() { bootbox.alert("Oops. Unexpected error while renaming your packages folder.<br/><br/>Please try again later."); };
 	    	self.comm('/jci_file/pkgreset', 'GET', null, s, f);
-<<<<<<< HEAD
->>>>>>> upstream/master
-=======
->>>>>>> upstream/master
 	    },
 
         _json_to_table: function(o) {
@@ -537,7 +505,7 @@ var JuliaBox = (function($, _, undefined){
 		websocktest: function() {
 		    bootbox.dialog({
                 message: '<iframe src="/assets/html/wsocktest.html" frameborder="0" width="100%" height="40%"></iframe>',
-                title: "Testing WekSocket Connectivity..."
+                title: "Testing WebSocket Connectivity..."
             }).find("div.modal-dialog").addClass("bootbox50");
 		}
 	};
