@@ -287,20 +287,20 @@ class JBoxVol(LoggerMixin):
         os.remove(filepath_temp)
 
     def setup_julia_image(self, custom_jimg):
-        # switch profile in kernel.json
-        # this hack should not be required once we move completely to Julia 0.4
-        kernel_path = os.path.join(self.disk_path, ".ipython", "kernels", "julia-0.3", "kernel.json")
-        kernel_cfg = {
-            "argv": ["/usr/bin/julia"],
-            "display_name": "Julia 0.3.11",
-            "language": "julia"
-        }
-
-        if custom_jimg is not None:
-            kernel_cfg['argv'].extend(["-J", custom_jimg])
-        kernel_cfg['argv'].extend(["-i", "-F", "/opt/julia_packages/.julia/v0.3/IJulia/src/kernel.jl", "{connection_file}"])
-        with open(kernel_path, 'w') as kout:
-            kout.write(json.dumps(kernel_cfg, indent=4))
+        # # switch profile in kernel.json
+        # # this hack should not be required once we move completely to Julia 0.4
+        # kernel_path = os.path.join(self.disk_path, ".ipython", "kernels", "julia-0.3", "kernel.json")
+        # kernel_cfg = {
+        #     "argv": ["/usr/bin/julia"],
+        #     "display_name": "Julia 0.3.11",
+        #     "language": "julia"
+        # }
+        #
+        # if custom_jimg is not None:
+        #     kernel_cfg['argv'].extend(["-J", custom_jimg])
+        # kernel_cfg['argv'].extend(["-i", "-F", "/opt/julia_packages/.julia/v0.3/IJulia/src/kernel.jl", "{connection_file}"])
+        # with open(kernel_path, 'w') as kout:
+        #     kout.write(json.dumps(kernel_cfg, indent=4))
 
         # add/remove alias in .bashrc
         bashrc_path = os.path.join(self.disk_path, ".bashrc")
@@ -331,6 +331,16 @@ class JBoxVol(LoggerMixin):
             return time.altzone
         else:
             return time.timezone
+
+    @staticmethod
+    def extract_mounts(props):
+        vols = props['Mounts']
+        mounts = []
+        for m in vols:
+            cpath = m['Destination']
+            hpath = m['Source']
+            mounts.append((cpath, hpath))
+        return mounts
 
     @staticmethod
     def pull_from_bucketstore(local_file, metadata_only=False):

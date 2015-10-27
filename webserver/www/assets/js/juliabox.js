@@ -76,6 +76,8 @@ var JuliaBox = (function($, _, undefined){
 	    	self.comm('/jci_file/pkginfo', 'GET', {'ver': ver}, s, f);
 	    },
 
+<<<<<<< HEAD
+<<<<<<< HEAD
 	    switch_julia_image: function(disp_curr, disp_switch) {
 	    	s = function(img){
 	    	    if(img.code == 0) {
@@ -99,6 +101,32 @@ var JuliaBox = (function($, _, undefined){
 	            disp_switch.html("standard");
 	            disp_curr.html("precompiled packages");
 	        }
+=======
+=======
+>>>>>>> upstream/master
+	    del_packages_confirm: function() {
+			self.popup_confirm("Switch back to system installed packages? Your local packages folder (~/.julia) will be renamed.", function(res) {
+				if(res) {
+					self.del_packages();
+				}
+			});
+		},
+
+	    del_packages: function() {
+	    	s = function(renamedto){
+	    		if(renamedto.data.length > 0) {
+	    			bootbox.alert('Your locally installed packages are moved into the "' + renamedto.data + '" folder. You will be using system provided packages from now on.');
+	    		}
+	    		else {
+	    			bootbox.alert('You are using system provided packages already.');
+	    		}
+	    	};
+	    	f = function() { bootbox.alert("Oops. Unexpected error while renaming your packages folder.<br/><br/>Please try again later."); };
+	    	self.comm('/jci_file/pkgreset', 'GET', null, s, f);
+<<<<<<< HEAD
+>>>>>>> upstream/master
+=======
+>>>>>>> upstream/master
 	    },
 
         _json_to_table: function(o) {
