@@ -1,7 +1,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<title>JuliaBox &mdash; {{user_id}}</title>
+	<title>CloudArrayBox &mdash; {{user_id}}</title>
 
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/assets/css/icons.css" />
@@ -34,8 +34,8 @@
         <div class="container">
             <div class="row header-row">
                 <div class="logo-and-name">
-                    <img class="brand-logo" src="/assets/img/juliacloudlogo.png"/>
-                    <div class="brand-title hidden-xs hidden-sm">JuliaBox<sup> beta</sup></div>
+                    <img class="brand-logo" src="/assets/img/cloudarraybox.png"/>
+                    <div class="brand-title hidden-xs hidden-sm">CloudArrayBox<sup> beta</sup></div>
                 </div>
                 {% block tabs %}
                 {% end %}
