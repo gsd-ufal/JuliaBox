@@ -5,8 +5,8 @@
 
 # configure docker to use either AUFS or DEVICEMAPPER
 #DOCKER_FS=AUFS
-DOCKER_FS=DEVICEMAPPER
-NUM_LOCALMAX=30
+DOCKER_FS=AUFS
+NUM_LOCALMAX=50
 
 function sysinstall_pystuff {
     sudo easy_install tornado
