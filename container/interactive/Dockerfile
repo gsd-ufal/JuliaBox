@@ -33,6 +33,8 @@ RUN mkdir -p /opt/julia-0.5.0-dev && \
     curl -s -L https://status.julialang.org/download/linux-x86_64 | tar -C /opt/julia-0.5.0-dev -x -z --strip-components=1 -f -
 RUN ln -fs /opt/julia-0.5.0-dev /opt/julia-0.5
 
+RUN rm /opt/julia && ln -fs /opt/julia-0.4.5 /opt/julia
+
 # JuliaBox package bundle shall be mounted at /opt/julia_packages.
 # They are added to LOAD_PATH through respective juliarc.jl scripts.
 RUN mkdir /opt/julia_packages

@@ -29,26 +29,28 @@ function list_packages {
 }
 
 # Install packages for Julia 0.3
-DEFAULT_PACKAGES="IJulia JuliaWebAPI"
-
+DEFAULT_PACKAGES="IJulia JuliaWebAPI PyPlot Interact Colors SymPy PyCall"
 INTERNAL_PACKAGES="https://github.com/tanmaykm/JuliaBoxUtils.jl.git \
 https://github.com/shashi/Homework.jl.git"
+BUILD_PACKAGES="JuliaBoxUtils IJulia PyPlot"
 
 init_packages "0.3"
 include_packages "0.3" "$DEFAULT_PACKAGES" "add"
 include_packages "0.3" "$INTERNAL_PACKAGES" "clone"
+include_packages "0.3" "$BUILD_PACKAGES" "build"
 list_packages "0.3"
 
 
 # Install packages for Julia 0.4
-DEFAULT_PACKAGES="IJulia JuliaWebAPI Requests DistributedArrays"
-
+DEFAULT_PACKAGES="IJulia JuliaWebAPI Requests DistributedArrays PyPlot Interact Colors SymPy PyCall"
 INTERNAL_PACKAGES="https://github.com/tanmaykm/JuliaBoxUtils.jl.git \
 https://github.com/shashi/Homework.jl.git \
 https://github.com/Keno/Docker.jl \
 https://github.com/gsd-ufal/CloudArray.jl"
+BUILD_PACKAGES="JuliaBoxUtils IJulia PyPlot"
 
 init_packages "0.4"
 include_packages "0.4" "$DEFAULT_PACKAGES" "add"
 include_packages "0.4" "$INTERNAL_PACKAGES" "clone"
+include_packages "0.4" "$BUILD_PACKAGES" "build"
 list_packages "0.4"
