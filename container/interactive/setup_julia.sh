@@ -46,7 +46,7 @@ DEFAULT_PACKAGES="IJulia JuliaWebAPI Requests DistributedArrays PyPlot Interact 
 INTERNAL_PACKAGES="https://github.com/tanmaykm/JuliaBoxUtils.jl.git \
 https://github.com/shashi/Homework.jl.git \
 https://github.com/Keno/Docker.jl \
-https://github.com/gsd-ufal/CloudArray.jl"
+https://github.com/gsd-ufal/Infra.jl"
 BUILD_PACKAGES="JuliaBoxUtils IJulia PyPlot"
 
 init_packages "0.4"
