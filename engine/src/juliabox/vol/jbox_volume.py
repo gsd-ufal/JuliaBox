@@ -41,6 +41,7 @@ class JBoxVol(LoggerMixin):
     JBP_USERHOME = 'vol.userhome'
     JBP_DATA = 'vol.data'
     JBP_PKGBUNDLE = 'vol.pkgbundle'
+    JBP_POLSAR = 'vol.polsar'
     JBP_USERHOME_EBS = 'vol.userhome.ebs'
     JBP_USERHOME_LOCAL = 'vol.userhome.local'
     JBP_DATA_EBS = 'vol.data.ebs'
@@ -56,6 +57,8 @@ class JBoxVol(LoggerMixin):
     # includes Julia packages and compiled images to be linked into from user home folder
     PKG_IMG = None
     PKG_MOUNT_POINT = '/opt/julia_packages'
+    # mount point for polsar disks on the container
+    POLSAR_MOUNT_POINT = '/data'
     # mount point for data disk on the container
     DATA_MOUNT_POINT = '/mnt/data'
 

@@ -80,6 +80,8 @@ class VolMgr(LoggerMixin):
             plugin.refresh_user_home_image()
         for plugin in JBoxVol.jbox_get_plugins(JBoxVol.JBP_PKGBUNDLE):
             plugin.refresh_user_home_image()
+        for plugin in JBoxVol.jbox_get_plugins(JBoxVol.JBP_POLSAR):
+            plugin.refresh_user_home_image()
 
     @staticmethod
     def get_disk_from_container(cid, disktype=None):
@@ -103,6 +105,18 @@ class VolMgr(LoggerMixin):
                     return disk
         except:
             VolMgr.log_error("error finding pkg mount used in " + cid)
+
+        return None
+    
+    @staticmethod
+    def get_polsar_mount_from_container(cid):
+        try:
+            for plugin in JBoxVol.jbox_get_plugins(JBoxVol.JBP_POLSAR):
+                disk = plugin.get_disk_from_container(cid)
+                if disk is not None:
+                    return disk
+        except:
+            VolMgr.log_error("error finding polsar mount used in " + cid)
 
         return None
 
@@ -129,6 +143,14 @@ class VolMgr(LoggerMixin):
         plugin = JBoxVol.jbox_get_plugin(JBoxVol.JBP_PKGBUNDLE)
         if plugin is None:
             raise Exception("No plugin found for %s" % (JBoxVol.JBP_PKGBUNDLE,))
+        disk = plugin.get_disk_for_user(email)
+        return disk
+    
+    @staticmethod
+    def get_polsar_mount_for_user(email):
+        plugin = JBoxVol.jbox_get_plugin(JBoxVol.JBP_POLSAR)
+        if plugin is None:
+            raise Exception("No plugin found for %s" % (JBoxVol.JBP_POLSAR,))
         disk = plugin.get_disk_for_user(email)
         return disk
 
