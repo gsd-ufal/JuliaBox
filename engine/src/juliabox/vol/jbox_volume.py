@@ -58,7 +58,7 @@ class JBoxVol(LoggerMixin):
     PKG_IMG = None
     PKG_MOUNT_POINT = '/opt/julia_packages'
     # mount point for polsar disks on the container
-    POLSAR_MOUNT_POINT = '/data'
+    POLSAR_MOUNT_POINT = '/home/juser/data'
     # mount point for data disk on the container
     DATA_MOUNT_POINT = '/mnt/data'
 
