@@ -67,7 +67,7 @@ class SessContainer(BaseContainer):
             pkgs_disk.disk_path: {
                 'bind': SessContainer.VOLUMES[1],
                 'ro': True
-            }
+            },
             polsar_disk.disk_path: {
                 'bind': SessContainer.VOLUMES[2],
                 'ro': True

@@ -12,17 +12,14 @@ class JBoxPolsarDiskVol(JBoxVol):
     provides = [JBoxVol.JBP_POLSAR]
 
     FS_LOC = None
-    LOCK = None
-    CURRENT_BUNDLE = None
-    BUNDLES_IN_USE = set()
 
     @staticmethod
     def configure():
         polsar_location = os.path.expanduser(JBoxCfg.get('polsar_location'))
+
         make_sure_path_exists(polsar_location)
 
         JBoxPolsarDiskVol.FS_LOC = polsar_location
-        JBoxPolsarDiskVol.LOCK = threading.Lock()
         JBoxPolsarDiskVol.refresh_disk_use_status()
 
     @staticmethod
@@ -47,7 +44,7 @@ class JBoxPolsarDiskVol(JBoxVol):
         JBoxPolsarDiskVol.log_debug("Mounting polsar disk for %s", user_email)
 
         disk_id = unique_sessname(user_email)
-        disk_path = os.path.join(JBoxPolsarDiskVol.FS_LOC, disk_id)
+        disk_path = JBoxPolsarDiskVol.FS_LOC
         if not os.path.exists(disk_path):
             os.mkdir(disk_path)
 
