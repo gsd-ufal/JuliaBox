@@ -111,6 +111,7 @@ Welcome to JuliaBox. We hope you will like it and also share with your friends.
     "backup_location" : "/jboxengine/data/backups",
     "pkg_location": "/jboxengine/data/packages",
     "mnt_location" : "/jboxengine/data/disks/loop/mnt",
+    "polsar_location" : "/data",
     "user_home_image" : "/jboxengine/data/user_home.tar.gz",
     "pkg_image": "/jboxengine/data/julia_packages.tar.gz",
 
@@ -124,6 +125,7 @@ Welcome to JuliaBox. We hope you will like it and also share with your friends.
 
     "plugins": [
         "juliabox.plugins.compute_ec2",
+        "juliabox.plugins.vol_polsardisk",
         "juliabox.plugins.vol_loopback",
         "juliabox.plugins.vol_ebs",
         "juliabox.plugins.vol_defpkg",

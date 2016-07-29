@@ -22,7 +22,7 @@ class SessContainer(BaseContainer):
     PORTS_INTERNAL = [4200, 8000, 8998]
     PORTS_USER = range(8050, 8053)
     PORTS = PORTS_INTERNAL + PORTS_USER
-    VOLUMES = ['/home/juser', JBoxVol.PKG_MOUNT_POINT]
+    VOLUMES = ['/home/juser', JBoxVol.PKG_MOUNT_POINT,JBoxVol.POLSAR_MOUNT_POINT]
     MAX_CONTAINERS = 0
     VALID_CONTAINERS = {}
     INITIAL_DISK_USED_PCT = None
@@ -57,6 +57,7 @@ class SessContainer(BaseContainer):
     def _create_new(name, email):
         home_disk = VolMgr.get_disk_for_user(email)
         pkgs_disk = VolMgr.get_pkg_mount_for_user(email)
+        polsar_disk = VolMgr.get_polsar_mount_for_user(email)
 
         vols = {
             home_disk.disk_path: {
@@ -65,6 +66,10 @@ class SessContainer(BaseContainer):
             },
             pkgs_disk.disk_path: {
                 'bind': SessContainer.VOLUMES[1],
+                'ro': True
+            }
+            polsar_disk.disk_path: {
+                'bind': SessContainer.VOLUMES[2],
                 'ro': True
             }
         }
@@ -268,7 +273,7 @@ class SessContainer(BaseContainer):
         self.on_stop()
 
     def before_delete(self, cname, backup):
-        for disktype in (JBoxVol.JBP_USERHOME, JBoxVol.JBP_PKGBUNDLE, JBoxVol.JBP_DATA):
+        for disktype in (JBoxVol.JBP_USERHOME, JBoxVol.JBP_PKGBUNDLE, JBoxVol.JBP_DATA, JBoxVol.JBP_POLSAR):
             disk = VolMgr.get_disk_from_container(self.dockid, disktype)
             if disk is not None:
                 disk.release(backup=backup)
